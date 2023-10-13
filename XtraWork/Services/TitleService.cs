@@ -14,7 +14,7 @@ public class TitleService
         _titleRepository = titleRepository;
     }
 
-    public async Task<TitleResponse> Get(Guid id)
+    public async Task<TitleResponse> Get(int id)
     {
         var title = await _titleRepository.Get(id);
         var response = new TitleResponse
@@ -54,7 +54,7 @@ public class TitleService
         };
     }
 
-    public async Task<TitleResponse> Update(Guid id, TitleRequest request)
+    public async Task<TitleResponse> Update(int id, TitleRequest request)
     {
         var title = await _titleRepository.Get(id);
         title.Description = request.Description;
@@ -68,7 +68,7 @@ public class TitleService
         };
     }
 
-    public async Task Delete(Guid id)
+    public async Task Delete(int id)
     {
         await _titleRepository.Delete(id);
     }

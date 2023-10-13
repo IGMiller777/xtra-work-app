@@ -21,7 +21,7 @@ public class EmployeeRepository
             .ToListAsync();
     }
 
-    public async Task<Employee> Get(Guid id)
+    public async Task<Employee> Get(int id)
     {
         return await _context.Employees
             .Include(x => x.Title)
@@ -40,7 +40,6 @@ public class EmployeeRepository
 
     public async Task<Employee> Create(Employee employee)
     {
-        employee.Id = Guid.NewGuid();
         _context.Add(employee);
         await _context.SaveChangesAsync();
         return employee;
@@ -53,9 +52,9 @@ public class EmployeeRepository
         return employee;
     }
 
-    public async Task Delete(Guid id)
+    public async Task Delete(int id)
     {
-        var employee = _context.Employees.FindAsync(id);
+        var employee = await _context.Employees.FindAsync(id);
         _context.Remove(employee);
         await _context.SaveChangesAsync();
     }

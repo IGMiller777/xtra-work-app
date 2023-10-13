@@ -14,7 +14,7 @@ public class EmployeeService
         _employeeRepository = employeeRepository;
     }
     
-    public async Task<EmployeeResponse> Get(Guid id)
+    public async Task<EmployeeResponse> Get(int id)
     {
         var employee = await _employeeRepository.Get(id);
 
@@ -99,7 +99,7 @@ public class EmployeeService
         return response;
     }
 
-    public async Task<EmployeeResponse> Update(Guid id, EmployeeRequest request)
+    public async Task<EmployeeResponse> Update(int id, EmployeeRequest request)
     {
         var employee = await _employeeRepository.Get(id);
 
@@ -115,7 +115,7 @@ public class EmployeeService
         return response;
     }
 
-    public async Task Delete(Guid id)
+    public async Task Delete(int id)
     {
         await _employeeRepository.Delete(id);
     }

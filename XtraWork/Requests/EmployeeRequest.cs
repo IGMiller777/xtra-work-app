@@ -6,5 +6,5 @@ public class EmployeeRequest
     public string LastName { get; set; } = string.Empty;
     public DateTime BirthDate { get; set; }
     public string Gender { get; set; } = string.Empty;
-    public Guid TitleId { get; set; }
+    public int TitleId { get; set; }
 }

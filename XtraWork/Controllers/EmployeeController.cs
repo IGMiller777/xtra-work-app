@@ -24,7 +24,7 @@ public class EmployeeController : ControllerBase
     }
 
     [HttpGet("{id}")]
-    public async Task<ActionResult<EmployeeResponse>> Get(Guid id)
+    public async Task<ActionResult<EmployeeResponse>> Get(int id)
     {
         var response = await _employeeService.Get(id);
         return Ok(response);
@@ -45,14 +45,14 @@ public class EmployeeController : ControllerBase
     }
 
     [HttpPut("{id}")]
-    public async Task<ActionResult<EmployeeResponse>> Update(Guid id, [FromBody] EmployeeRequest request)
+    public async Task<ActionResult<EmployeeResponse>> Update(int id, [FromBody] EmployeeRequest request)
     {
         var response = await _employeeService.Update(id, request);
         return Ok(response);
     }
 
     [HttpDelete("{id}")]
-    public async Task<ActionResult> Delete(Guid id)
+    public async Task<ActionResult> Delete(int id)
     {
         await _employeeService.Delete(id);
         return NoContent();

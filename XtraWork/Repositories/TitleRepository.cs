@@ -17,14 +17,13 @@ public class TitleRepository
         return await _context.Titles.ToListAsync();
     }
 
-    public async Task<Title> Get(Guid id)
+    public async Task<Title> Get(int id)
     {
         return await _context.Titles.FindAsync(id);
     }
 
     public async Task<Title> Create(Title title)
     {
-        title.Id = Guid.NewGuid();
         _context.AddAsync(title);
         await _context.SaveChangesAsync();
         return title;
@@ -37,7 +36,7 @@ public class TitleRepository
         return title;
     }
 
-    public async Task Delete(Guid id)
+    public async Task Delete(int id)
     {
         var title = _context.Titles.FindAsync(id);
         _context.Remove(title);

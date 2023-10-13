@@ -24,7 +24,7 @@ public class TitleController : ControllerBase
     }
 
     [HttpGet("{id}")]
-    public async Task<ActionResult<TitleResponse>> Get(Guid id)
+    public async Task<ActionResult<TitleResponse>> Get(int id)
     {
         var response = await _titleService.Get(id);
         return Ok(response);
@@ -38,14 +38,14 @@ public class TitleController : ControllerBase
     }
 
     [HttpPut("{id}")]
-    public async Task<ActionResult<TitleResponse>> Update(Guid id, [FromBody] TitleRequest request)
+    public async Task<ActionResult<TitleResponse>> Update(int id, [FromBody] TitleRequest request)
     {
         var response = await _titleService.Update(id, request);
         return Ok(response);
     }
 
     [HttpDelete("{id}")]
-    public async Task<ActionResult> Delete(Guid id)
+    public async Task<ActionResult> Delete(int id)
     {
         await _titleService.Delete(id);
         return NoContent();
