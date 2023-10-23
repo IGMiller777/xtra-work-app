@@ -9,9 +9,12 @@ public class TitleService
 {
     private readonly TitleRepository _titleRepository;
 
-    public TitleService(TitleRepository titleRepository)
+    private readonly ILogger<TitleService> _logger; 
+
+    public TitleService(TitleRepository titleRepository, ILogger<TitleService> logger)
     {
         _titleRepository = titleRepository;
+        _logger = logger;
     }
 
     public async Task<TitleResponse> Get(int id)
@@ -40,6 +43,12 @@ public class TitleService
 
     public async Task<TitleResponse> Create(TitleRequest request)
     {
+        if (string.IsNullOrWhiteSpace(request.Description))
+        {
+            _logger.LogError("Create title Description cannot be empty!");
+            throw new BadHttpRequestException(" Description cannot be empty!");
+        }
+        
         var title = new Title
         {
             Description = request.Description

@@ -33,22 +33,57 @@ public class TitleController : ControllerBase
     [HttpPost]
     public async Task<ActionResult<TitleResponse>> Create([FromBody] TitleRequest request)
     {
-        var response = await _titleService.Create(request);
-        return StatusCode(StatusCodes.Status201Created, response);
+        try
+        {
+            var response = await _titleService.Create(request);
+            return StatusCode(StatusCodes.Status201Created, response);
+        }
+        catch (Exception e)
+        {
+            var errorResponse = new
+            {
+                Status = StatusCodes.Status400BadRequest,
+                Message = e.Message
+            };
+            return BadRequest(errorResponse);
+        }
     }
 
     [HttpPut("{id}")]
     public async Task<ActionResult<TitleResponse>> Update(int id, [FromBody] TitleRequest request)
     {
-        var response = await _titleService.Update(id, request);
-        return Ok(response);
+        try
+        {
+            var response = await _titleService.Update(id, request);
+            return Ok(response);
+        }
+        catch (Exception e)
+        {
+            var errorResponse = new
+            {
+                Status = StatusCodes.Status400BadRequest,
+                Message = e.Message
+            };
+            return BadRequest(errorResponse);
+        }
     }
 
     [HttpDelete("{id}")]
     public async Task<ActionResult> Delete(int id)
     {
-        await _titleService.Delete(id);
-        return NoContent();
+        try
+        {
+            await _titleService.Delete(id);
+            return NoContent();
+        }
+        catch (Exception e)
+        {
+            var errorResponse = new
+            {
+                Status = StatusCodes.Status400BadRequest,
+                Message = e.Message
+            };
+            return BadRequest(errorResponse);
+        }
     }
-    
 }
