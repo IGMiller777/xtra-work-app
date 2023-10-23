@@ -16,8 +16,8 @@ public class XtraWorkContext : DbContext
         base.OnModelCreating(modelBuilder);
         
         EntityTypeBuilder<Title> title = modelBuilder.Entity<Title>();
-        // title.HasKey(a => a.Id);
-        // title.Property(a => a.Id).ValueGeneratedOnAdd();
+        title.HasKey(a => a.Id);
+        title.Property(a => a.Id).UseIdentityColumn();
         title.Property(a => a.Description).HasMaxLength(255);
     }
 }
