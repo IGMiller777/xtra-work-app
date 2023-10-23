@@ -1,14 +1,14 @@
 using System.Net;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.EntityFrameworkCore;
+using Serilog;
 using XtraWork.Repositories;
 using XtraWork.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var connectionString = builder.Configuration.GetConnectionString("XtraWork");
-
-builder.Services.AddDbContext<XtraWorkContext>(options => options.UseSqlServer(connectionString));
+builder.Services.AddDbContext<XtraWorkContext>(options => 
+    options.UseSqlServer(builder.Configuration.GetConnectionString("XtraWork")));
 
 builder.Services.AddScoped<TitleRepository>();
 builder.Services.AddScoped<EmployeeRepository>();
@@ -20,6 +20,15 @@ builder.Services.AddScoped<EmployeeService>();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+// ADD LOGGING
+const string logPath = "../log/xtra-work.log";
+var logger = new LoggerConfiguration()
+    .WriteTo.Console()
+    .WriteTo.File(logPath, rollingInterval: RollingInterval.Day)
+    .CreateLogger();
+builder.Logging.ClearProviders();
+builder.Logging.AddSerilog(logger);
 
 var app = builder.Build();
 

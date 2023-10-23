@@ -71,3 +71,13 @@
 /Users/ivangamanovich/IGM/Programming/FullApps/xtra-work-app/XtraWork/bin/Debug/net6.0/runtimes/win/lib/netcoreapp3.0/System.Windows.Extensions.dll
 /Users/ivangamanovich/IGM/Programming/FullApps/xtra-work-app/XtraWork/bin/Debug/net6.0/Humanizer.dll
 /Users/ivangamanovich/IGM/Programming/FullApps/xtra-work-app/XtraWork/bin/Debug/net6.0/Microsoft.EntityFrameworkCore.Design.dll
+/Users/ivangamanovich/IGM/Programming/FullApps/xtra-work-app/XtraWork/bin/Debug/net6.0/Microsoft.Extensions.DependencyModel.dll
+/Users/ivangamanovich/IGM/Programming/FullApps/xtra-work-app/XtraWork/bin/Debug/net6.0/Serilog.dll
+/Users/ivangamanovich/IGM/Programming/FullApps/xtra-work-app/XtraWork/bin/Debug/net6.0/Serilog.AspNetCore.dll
+/Users/ivangamanovich/IGM/Programming/FullApps/xtra-work-app/XtraWork/bin/Debug/net6.0/Serilog.Extensions.Hosting.dll
+/Users/ivangamanovich/IGM/Programming/FullApps/xtra-work-app/XtraWork/bin/Debug/net6.0/Serilog.Extensions.Logging.dll
+/Users/ivangamanovich/IGM/Programming/FullApps/xtra-work-app/XtraWork/bin/Debug/net6.0/Serilog.Formatting.Compact.dll
+/Users/ivangamanovich/IGM/Programming/FullApps/xtra-work-app/XtraWork/bin/Debug/net6.0/Serilog.Settings.Configuration.dll
+/Users/ivangamanovich/IGM/Programming/FullApps/xtra-work-app/XtraWork/bin/Debug/net6.0/Serilog.Sinks.Console.dll
+/Users/ivangamanovich/IGM/Programming/FullApps/xtra-work-app/XtraWork/bin/Debug/net6.0/Serilog.Sinks.Debug.dll
+/Users/ivangamanovich/IGM/Programming/FullApps/xtra-work-app/XtraWork/bin/Debug/net6.0/Serilog.Sinks.File.dll
